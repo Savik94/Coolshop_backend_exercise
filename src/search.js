@@ -11,7 +11,7 @@ var search_key = process.argv[4];
 
 const readInterface = readline.createInterface({
     input: fs.createReadStream(file_path)
-                .on('error', (err) => {console.error("ERROR command line args"); })
+                .on('error', () => {console.error("ERROR command line args"); })
 });
 
 readInterface.on('line', (line) => {
@@ -19,5 +19,5 @@ readInterface.on('line', (line) => {
     let array = l.split(",");
 
     if(array[row_index] == search_key)
-        console.log(l+ ";");
+        console.log(l + ";");
 });
